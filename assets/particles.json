@@ -1,75 +1,58 @@
 {
   "particles": {
     "number": {
-      "value": 10,
-      "density": {
-        "enable": true,
-        "value_area": 800
-      }
+      "value": 69,
+      "density": { "enable": true, "value_area": 236.7447595561036 }
     },
-    "color": {
-      "value": ["#dc052d"]
-    },
+    "color": { "value": "#289898" },
     "shape": {
-      "type": "polygon",
-      "stroke": {
-        "width": 0,
-        "color": "#000000"
-      },
-      "polygon": {
-        "nb_sides": 4
-      }
+      "type": ["star", "images"],
+      "stroke": { "width": 16, "color": "#292f59" },
+      "polygon": { "nb_sides": 7 },
+      "images": { "src": "img/lovers_face.svg", "width": 100, "height": 100 }
     },
     "opacity": {
-      "value": 0.7,
-      "random": true,
-      "anim": {
-        "enable": false,
-        "speed": 1,
-        "opacity_min": 0.4,
-        "sync": false
-      }
+      "value": 0.5,
+      "random": false,
+      "anim": { "enable": false, "speed": 1, "opacity_min": 0.1, "sync": false }
     },
     "size": {
-      "value": 15,
+      "value": 3,
       "random": true,
-      "anim": {
-        "enable": false,
-        "speed": 4,
-        "size_min": 1,
-        "sync": false
-      }
+      "anim": { "enable": false, "speed": 40, "size_min": 0.1, "sync": false }
     },
     "line_linked": {
-      "enable": false
+      "enable": true,
+      "distance": 304.6473756733058,
+      "color": "#3e2c2c",
+      "opacity": 0.4,
+      "width": 1
     },
     "move": {
       "enable": true,
-      "speed": 1,
-      "direction": "bottom",
+      "speed": 0.69,
+      "direction": "none",
       "random": true,
       "straight": false,
-      "out_mode": "out",
+      "out_mode": "bounce",
       "bounce": false,
-      "attract": {
-        "enable": false,
-        "rotateX": 1200,
-        "rotateY": 600
-      }
+      "attract": { "enable": true, "rotateX": 10000, "rotateY": 10000 }
     }
   },
   "interactivity": {
-    "detect_on": "canvas",
+    "detect_on": "window",
     "events": {
-      "onhover": {
-        "enable": false
-      },
-      "onclick": {
-        "enable": true,
-        "mode": "repulse"
-      },
+      "onhover": { "enable": true, "mode": "grab" },
+      "onclick": { "enable": true, "mode": "repulse" },
       "resize": true
     },
-    "retina_detect": true
-  }
+    "modes": {
+      "grab": { "distance": 400, "line_linked": { "opacity": 1 } },
+      "bubble": { "distance": 400, "size": 40, "duration": 2, "opacity": 8, "speed": 3 },
+      "repulse": { "distance": 200, "duration": 0.4 },
+      "push": { "particles_nb": 4 },
+      "remove": { "particles_nb": 2 }
+    }
+  },
+  "retina_detect": true
 }

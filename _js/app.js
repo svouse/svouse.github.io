@@ -18,6 +18,12 @@ $(document).ready(function() {
     new TxtRotate(element, JSON.parse(toRotate), period);
   }, 1500);
 
+  document.addEventListener('colorshift', function(e) {
+  let piece = document.getElementByClass('piece');
+  piece.style.opacity = -1 + 'px';
+  piece.style.opacity = -1 + 'px';
+  });
+
   // INJECT CSS
   var css = document.createElement('style');
   css.type = 'text/css';
