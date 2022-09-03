@@ -25,6 +25,7 @@ $primary-color: #ff073a;
 /* General */
 
 html {
+  overflow-x: hidden; 
   background: $bg-color;
   color: $text-color;
   font-family: $font-family;
