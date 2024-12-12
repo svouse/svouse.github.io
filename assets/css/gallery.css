@@ -1,0 +1,91 @@
+/* Page Background */
+html, body {
+    background-color: #fff !important; /* Ensures white background everywhere */
+    color: #2b1102;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Ensures full height for consistency */
+}
+
+/* Portfolio Section */
+.portfolio {
+    padding: 20px;
+}
+
+/* Gallery Layout */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.gallery-item {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    width: calc(50% - 20px);
+    max-width: 640px;
+    text-align: center;
+    display: flex;
+    flex-direction: column; /* Stack label above content */
+    padding: 0;
+}
+
+/* Label Section */
+.gallery-label {
+    padding: 10px;
+    text-align: left;
+    background-color: #f9f9f9; /* Slight contrast for labels */
+    border-bottom: 1px solid #ddd;
+}
+
+.gallery-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.gallery-blurb {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* Image Styles */
+.gallery-image {
+    width: 100%;
+    height: auto;
+}
+
+/* 3D Embed Styles */
+.gallery-iframe {
+    width: 100%;
+    height: 100%;
+    min-height: 480px;
+    border: none;
+}
+
+.image-gallery {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.gallery-thumbnail {
+    width: 100px; /* Thumbnail size */
+    height: auto;
+    object-fit: contain; /* Ensures the whole image fits without cropping */
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.gallery-thumbnail:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+
