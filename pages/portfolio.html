@@ -6,8 +6,14 @@
     <title>Sage Vousé - Portfolio</title>
     <link rel="stylesheet" href="/assets/css/main.min.css">
     <link rel="stylesheet" href="/assets/css/vendors.min.css">
-    <link rel="stylesheet" href="/assets/css/gallery.css"> <!-- New gallery-specific styles -->
-    <script src="/assets/js/app.min.js"></script>
+    <link rel="stylesheet" href="/assets/css/gallery.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+    <script defer>
+        document.addEventListener("DOMContentLoaded", () => {
+            GLightbox({ selector: '.glightbox', touchNavigation: true, loop: true });
+        });
+    </script>
 </head>
 <body>
     <div class="backarrow">
@@ -16,27 +22,312 @@
         </a>
     </div>
 
-    <section class="portfolio" style="position: relative; color: #2b1102;">
-        <h1 class="portfolio_title" style="border-bottom: 1px solid #2b1102; width: 80%;">Portfolio</h1>
+    <section class="portfolio">
         <div class="gallery">
-            <!-- Gallery Item Example -->
+            <!-- Cemetery -->
             <div class="gallery-item">
-                <img src="/assets/images/project1.jpg" alt="Project 1" class="gallery-image">
-                <div class="gallery-info">
-                    <h2 class="gallery-title">Mother Scrungle</h2>
-                    <p class="gallery-description">Ceramic piece. A homage to resilience and love.</p>
+                <div class="gallery-label">
+                    <h2 class="gallery-title">Cemetery</h2>
+                    <p><strong>Material:</strong> Ceramic</p>
+                    <p><strong>Dimensions:</strong> 21x21x8 inches</p>
+                    <p><strong>Price:</strong> $1200</p>
+                    <p class="gallery-blurb">A celebration.</p>
+                </div>
+
+                <div class="image-gallery">
+                    <a href="/assets/images/cemetery.JPG" class="glightbox" data-gallery="cemetery-gallery">
+                        <img src="/assets/images/cemetery.JPG" alt="Cemetery Image 1" class="gallery-thumbnail">
+                    </a>
+                    <a href="/assets/images/cemetery_texture.JPG" class="glightbox" data-gallery="cemetery-gallery">
+                        <img src="/assets/images/cemetery_texture.JPG" alt="Cemetery Image 1" class="gallery-thumbnail">
+                    </a>
                 </div>
             </div>
-            <!-- 3D Embed Example -->
             <div class="gallery-item">
-                <iframe src="https://poly.cam/capture/8FED8C8D-6797-408C-A441-EB6D62ABE492"
-                    title="3D View: Mother Scrungle"
-                    class="gallery-iframe"
-                    frameborder="0"></iframe>
-                <div class="gallery-info">
-                    <h2 class="gallery-title">3D View: Mother Scrungle</h2>
-                    <p class="gallery-description">Explore the details of this piece in 3D.</p>
+                <iframe allowfullscreen loading="lazy" frameborder="0"
+                    src="https://p3d.in/e/WOJWd+shadeless+spin+shading,dl,help,share,ar,spin,link,border,loader-hidden"
+                    class="gallery-iframe"></iframe>
+            </div>
+            <!-- Belly -->
+            <div class="gallery-item">
+                <div class="gallery-label">
+                    <h2 class="gallery-title">Bellyy</h2>
+                    <p><strong>Material:</strong> Ceramic</p>
+                    <p><strong>Dimensions:</strong> 21x22x15 inches</p>
+                    <p><strong>Price:</strong> $600</p>
+                    <p class="gallery-blurb">A wealth.</p>
                 </div>
+
+                <div class="image-gallery">
+                    <a href="/assets/images/belly.jpg" class="glightbox" data-gallery="cemetery-gallery">
+                        <img src="/assets/images/belly.jpg" alt="Belly Image 1" class="gallery-thumbnail">
+                    </a>
+                    <a href="/assets/images/bellyportrait.jpg" class="glightbox" data-gallery="cemetery-gallery">
+                        <img src="/assets/images/bellyportrait.jpg" alt="Belly Image 2" class="gallery-thumbnail">
+                    </a>
+                </div>
+            </div>
+            <div class="gallery-item">
+                Scan coming soon!
+            </div>
+                        <!-- Belly -->
+            <div class="gallery-item">
+                <div class="gallery-label">
+                    <h2 class="gallery-title">Bellyy</h2>
+                    <p><strong>Material:</strong> Ceramic</p>
+                    <p><strong>Dimensions:</strong> 21x22x15 inches</p>
+                    <p><strong>Price:</strong> $800</p>
+                    <p class="gallery-blurb">A wealth.</p>
+                </div>
+
+                <div class="image-gallery">
+                    <a href="/assets/images/belly.jpg" class="glightbox" data-gallery="cemetery-gallery">
+                        <img src="/assets/images/belly.jpg" alt="Belly Image 1" class="gallery-thumbnail">
+                    </a>
+                    <a href="/assets/images/bellyportrait.jpg" class="glightbox" data-gallery="cemetery-gallery">
+                        <img src="/assets/images/bellyportrait.jpg" alt="Belly Image 2" class="gallery-thumbnail">
+                    </a>
+                </div>
+            </div>
+            <div class="gallery-item">
+                Scan coming soon!
+            </div>
+
+            <!-- Appendix -->
+            <div class="gallery-item">
+                <div class="gallery-label">
+                    <h2 class="gallery-title">Appendix</h2>
+                    <p><strong>Material:</strong> Ceramic</p>
+                    <p><strong>Dimensions:</strong> 14x8x5 inches</p>
+                    <p><strong>Price:</strong> $400</p>
+                    <p class="gallery-blurb">Leaking. Matte pink ceramic vessel.</p>
+                </div>
+                <div class="image-gallery">
+                    <a href="/assets/images/IMG_5898.jpg" class="glightbox" data-gallery="appendix-gallery">
+                        <img src="/assets/images/IMG_5898.jpg" alt="Appendix Image 1" class="gallery-thumbnail">
+                    </a>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <iframe allowfullscreen loading="lazy" frameborder="0"
+                    src="https://p3d.in/e/Ib4JC+shadeless+spin+shading,dl,help,share,ar,spin,link,border,loader-hidden"
+                    class="gallery-iframe"></iframe>
+            </div>
+
+            <!-- Blue -->
+            <div class="gallery-item">
+                <div class="gallery-label">
+                    <h2 class="gallery-title">Blue</h2>
+                    <p><strong>Material:</strong> Ceramic</p>
+                    <p><strong>Dimensions:</strong> 12x8x5 inches</p>
+                    <p><strong>Price:</strong> $400</p>
+                    <p class="gallery-blurb">A spinning top. Matte blue ceramic object with yellow undertones.</p>
+                </div>
+                <div class="image-gallery">
+                    <a href="/assets/images/blue.jpg" class="glightbox" data-gallery="blue-gallery">
+                        <img src="/assets/images/blue.jpg" alt="Blue Image 1" class="gallery-thumbnail">
+                    </a>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <iframe allowfullscreen loading="lazy" frameborder="0"
+                    src="https://p3d.in/e/ANIUi+shadeless+spin+shading,dl,help,share,ar,spin,link,border,loader-hidden"
+                    class="gallery-iframe"></iframe>
+            </div>
+
+            <!-- Blackhearted Lover -->
+            <div class="gallery-item">
+                <div class="gallery-label">
+                    <h2 class="gallery-title">Blackhearted Lover</h2>
+                    <p><strong>Material:</strong> Ceramic</p>
+                    <p><strong>Dimensions:</strong> 12x8x5 inches</p>
+                    <p><strong>Price:</strong> $400</p>
+                    <p class="gallery-blurb">A betrayal. Iron-washed ceramic vessel.</p>
+                </div>
+                <div class="image-gallery">
+                    <a href="/assets/images/IMG_4731.jpg" class="glightbox" data-gallery="blackhearted-gallery">
+                        <img src="/assets/images/IMG_4731.jpg" alt="Blackhearted Lover Image 1" class="gallery-thumbnail">
+                    </a>
+                    <a href="/assets/images/IMG_4733.jpg" class="glightbox" data-gallery="blackhearted-gallery">
+                        <img src="/assets/images/IMG_4733.jpg" alt="Blackhearted Lover Image 1" class="gallery-thumbnail">
+                    </a>
+                    <a href="/assets/images/IMG_4735.jpg" class="glightbox" data-gallery="blackhearted-gallery">
+                        <img src="/assets/images/IMG_4735.jpg" alt="Blackhearted Lover Image 1" class="gallery-thumbnail">
+                    </a>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <iframe allowfullscreen loading="lazy" frameborder="0"
+                    src="https://p3d.in/e/uQMuI+shadeless+spin+shading,dl,help,share,ar,spin,link,border,loader-hidden"
+                    class="gallery-iframe"></iframe>
+            </div>
+
+            <!-- Totem -->
+            <div class="gallery-item">
+                <div class="gallery-label">
+                    <h2 class="gallery-title">Totem</h2>
+                    <p><strong>Material:</strong> Ceramic</p>
+                    <p><strong>Dimensions:</strong> 12x8x5 inches</p>
+                    <p><strong>Price:</strong> $300</p>
+                    <p class="gallery-blurb">A stack. Red and gray ceramic object.</p>
+                </div>
+                <div class="image-gallery">
+                    <a href="/assets/images/totem1.jpg" class="glightbox" data-gallery="totem-gallery">
+                        <img src="/assets/images/totem1_thumb.jpg" alt="Totem Image 1" class="gallery-thumbnail">
+                    </a>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <iframe allowfullscreen loading="lazy" frameborder="0"
+                    src="https://p3d.in/e/fw88w+shadeless+spin+shading,dl,help,share,ar,spin,link,border,loader-hidden"
+                    class="gallery-iframe"></iframe>
+            </div>
+
+            <!-- Sink -->
+            <div class="gallery-item">
+                <div class="gallery-label">
+                    <h2 class="gallery-title">Sink</h2>
+                    <p><strong>Material:</strong> Ceramic</p>
+                    <p><strong>Dimensions:</strong> 18x8x11 inches</p>
+                    <p><strong>Price:</strong> $600</p>
+                    <p class="gallery-blurb">A peak. Wood fired ceramic vessel.</p>
+                </div>
+                <div class="image-gallery">
+                    <a href="/assets/images/sink-2.jpg" class="glightbox" data-gallery="sink-gallery">
+                        <img src="/assets/images/sink-2.jpg" alt="Sink Image 1" class="gallery-thumbnail">
+                    </a>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <iframe allowfullscreen loading="lazy" frameborder="0"
+                    src="https://p3d.in/e/WWCr9+shadeless+spin+shading,dl,help,share,ar,spin,link,border,loader-hidden"
+                    class="gallery-iframe"></iframe>
+            </div>
+
+            <!-- Lachrimatory 1 -->
+            <div class="gallery-item">
+                <div class="gallery-label">
+                    <h2 class="gallery-title">Lachrimatory 1</h2>
+                    <p><strong>Material:</strong> Ceramic</p>
+                    <p><strong>Dimensions:</strong> 10x8x6 inches</p>
+                    <p><strong>Price:</strong> $300</p>
+                    <p class="gallery-blurb">An initial grief. Dark green ceramic vessel.</p>
+                </div>
+                <div class="image-gallery">
+                    <a href="/assets/images/group1.jpg" class="glightbox" data-gallery="lachrimatory1-gallery">
+                        <img src="/assets/images/group1.jpg" alt="Lachrimatory 1 Image 1" class="gallery-thumbnail">
+                    </a>
+                    <a href="/assets/images/group2.jpg" class="glightbox" data-gallery="lachrimatory1-gallery">
+                        <img src="/assets/images/group2.jpg" alt="Lachrimatory 1 Image 1" class="gallery-thumbnail">
+                    </a>
+                    <a href="/assets/images/IMG_0511 2.jpg" class="glightbox" data-gallery="lachrimatory1-gallery">
+                        <img src="/assets/images/IMG_0511 2.jpg" alt="Lachrimatory 1 Image 1" class="gallery-thumbnail">
+                    </a>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <iframe allowfullscreen loading="lazy" frameborder="0"
+                    src="https://p3d.in/e/4m5uc+shadeless+spin+shading,dl,help,share,ar,spin,link,border,loader-hidden"
+                    class="gallery-iframe"></iframe>
+            </div>
+
+            <!-- Lachrimatory 2 -->
+            <div class="gallery-item">
+                <div class="gallery-label">
+                    <h2 class="gallery-title">Lachrimatory 2</h2>
+                    <p><strong>Material:</strong> Ceramic</p>
+                    <p><strong>Dimensions:</strong> 10x8x6 inches</p>
+                    <p><strong>Price:</strong> $300</p>
+                    <p class="gallery-blurb">A deep grief. Matte blue ceramic vessel.</p>
+                </div>
+                <div class="image-gallery">
+                    <a href="/assets/images/group1.jpg" class="glightbox" data-gallery="lachrimatory1-gallery">
+                        <img src="/assets/images/group1.jpg" alt="Lachrimatory 1 Image 1" class="gallery-thumbnail">
+                    </a>
+                    <a href="/assets/images/group2.jpg" class="glightbox" data-gallery="lachrimatory1-gallery">
+                        <img src="/assets/images/group2.jpg" alt="Lachrimatory 1 Image 1" class="gallery-thumbnail">
+                    </a>
+                    <a href="/assets/images/IMG_0511 2.jpg" class="glightbox" data-gallery="lachrimatory1-gallery">
+                        <img src="/assets/images/IMG_0511 2.jpg" alt="Lachrimatory 1 Image 1" class="gallery-thumbnail">
+                    </a>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <iframe allowfullscreen loading="lazy" frameborder="0"
+                    src="https://p3d.in/e/J5JuZ+shadeless+spin+shading,dl,help,share,ar,spin,link,border,loader-hidden"
+                    class="gallery-iframe"></iframe>
+            </div>
+
+            <!-- Lachrimatory 3 -->
+            <div class="gallery-item">
+                <div class="gallery-label">
+                    <h2 class="gallery-title">Lachrimatory 3</h2>
+                    <p><strong>Material:</strong> Ceramic</p>
+                    <p><strong>Dimensions:</strong> 10x8x6  inches</p>
+                    <p><strong>Price:</strong> $300</p>
+                    <p class="gallery-blurb">A grief softened. Pale blue ceramic vessel.</p>
+                </div>
+                <div class="image-gallery">
+                    <a href="/assets/images/group1.jpg" class="glightbox" data-gallery="lachrimatory1-gallery">
+                        <img src="/assets/images/group1.jpg" alt="Lachrimatory 1 Image 1" class="gallery-thumbnail">
+                    </a>
+                    <a href="/assets/images/group2.jpg" class="glightbox" data-gallery="lachrimatory1-gallery">
+                        <img src="/assets/images/group2.jpg" alt="Lachrimatory 1 Image 1" class="gallery-thumbnail">
+                    </a>
+                    <a href="/assets/images/IMG_0511 2.jpg" class="glightbox" data-gallery="lachrimatory1-gallery">
+                        <img src="/assets/images/IMG_0511 2.jpg" alt="Lachrimatory 1 Image 1" class="gallery-thumbnail">
+                    </a>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <iframe allowfullscreen loading="lazy" frameborder="0"
+                    src="https://p3d.in/e/XI8eE+shadeless+spin+shading,dl,help,share,ar,spin,link,border,loader-hidden"
+                    class="gallery-iframe"></iframe>
+            </div>
+
+            <!-- Cracklin Jester -->
+            <div class="gallery-item">
+                <div class="gallery-label">
+                    <h2 class="gallery-title">Cracklin Jester</h2>
+                    <p><strong>Material:</strong> Ceramic</p>
+                    <p><strong>Dimensions:</strong> 16x8x12 inches</p>
+                    <p><strong>Price:</strong> $400</p>
+                    <p class="gallery-blurb">A break. Matte blue ceramic object.</p>
+                </div>
+                <div class="image-gallery">
+                    <a href="/assets/images/IMG_5441.jpg" class="glightbox" data-gallery="cracklinjester-gallery">
+                        <img src="/assets/images/IMG_5441.jpg" alt="Cracklin Jester Image 1" class="gallery-thumbnail">
+                    </a>
+                    <a href="/assets/images/IMG_5456.jpg" class="glightbox" data-gallery="cracklinjester-gallery">
+                        <img src="/assets/images/IMG_5456.jpg" alt="Cracklin Jester Image 1" class="gallery-thumbnail">
+                    </a>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <iframe allowfullscreen loading="lazy" frameborder="0"
+                    src="https://p3d.in/e/ZWLWJ+shadeless+spin+shading,dl,help,share,ar,spin,link,border,loader-hidden"
+                    class="gallery-iframe"></iframe>
+            </div>
+
+            <!-- Box -->
+            <div class="gallery-item">
+                <div class="gallery-label">
+                    <h2 class="gallery-title">Box</h2>
+                    <p><strong>Material:</strong> Glass</p>
+                    <p><strong>Dimensions:</strong> 8x8x5 inches</p>
+                    <p><strong>Price:</strong> $300</p>
+                    <p class="gallery-blurb">A grid. Cast glass.</p>
+                </div>
+                <div class="image-gallery">
+                    <a href="/assets/images/IMG_4048.jpg" class="glightbox" data-gallery="box-gallery">
+                        <img src="/assets/images/IMG_4048.jpg" alt="Box Image 1" class="gallery-thumbnail">
+                    </a>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <iframe allowfullscreen loading="lazy" frameborder="0"
+                    src="https://p3d.in/e/0d3XR+shadeless+spin+shading,dl,help,share,ar,spin,link,border,loader-hidden"
+                    class="gallery-iframe"></iframe>
             </div>
         </div>
     </section>
