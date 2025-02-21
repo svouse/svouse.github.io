@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Who Are You?</title>
+    <link rel="stylesheet" href="/assets/css/main.min.css">
+    <link rel="stylesheet" href="/assets/css/vendors.min.css">
+  <script defer src="/assets/js/access-control.min.js"></script>
+</head>
+
+<body id="password-page">
+<button id="back-btn" onclick="history.back()">Back</button>
+  <div id="password-container">
+    <h2>Who Are You?</h2>
+
+    <!-- Role selection -->
+    <label><input type="radio" name="role" value="curator"> Curator</label>
+    <label><input type="radio" name="role" value="friend"> Friend</label>
+    <label><input type="radio" name="role" value="artist"> Artist</label>
+    <label><input type="radio" name="role" value="curious"> Just Curious</label>
+
+    <!-- Password field for Curators -->
+    <div id="password-section">
+      <label class="label">Password:</label>
+      <input type="password" id="password-input">
+      <button id="submit-btn">Enter</button>
+      <p id="error-message"></p>
+    </div>
+
+    <!-- Name field for Friends -->
+    <div id="friend-section">
+      <label class="label">What's your name?</label>
+      <input type="text" id="friend-name">
+      <button id="friend-btn">Enter</button>
+    </div>
+
+    <!-- General "Proceed" button for non-curators -->
+    <button id="general-btn" style="display: none;">Proceed</button>
+  </div>
+</body>
+</html>

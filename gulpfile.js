@@ -41,13 +41,13 @@ function stylesVendors() {
  * Compile and minify js
  */
 function scripts() {
-  return gulp
-    .src([ '_js/app.js' ])
-    .pipe(rename('app.min.js'))
-    .pipe(uglify())
-    .pipe(gulp.dest('_site/assets/js'))
-    .pipe(browserSync.reload({ stream: true }))
-    .pipe(gulp.dest('assets/js'));
+    return gulp
+        .src([ '_js/app.js', '_js/daily-inanity.js', '_js/access-control.js', '_js/scrolling-nav.js' ])  // Include daily-inanity.js
+        .pipe(rename({ suffix: '.min' }))
+        .pipe(uglify())
+        .pipe(gulp.dest('_site/assets/js'))
+        .pipe(browserSync.reload({ stream: true }))
+        .pipe(gulp.dest('assets/js'));
 }
 
 function scriptsVendors() {
@@ -115,7 +115,7 @@ function watchMarkup() {
 }
 
 function watchScripts() {
-  gulp.watch([ '_js/*.js' ], scripts);
+    gulp.watch([ '_js/*.js', '_js/daily-inanity.js' ], scripts);
 }
 
 function watchStyles() {

@@ -2,13 +2,67 @@ setTimeout(function() {
   fadeOutPreloader(document.getElementById('preloader'), 69);
 }, 1500);
 
+document.addEventListener("DOMContentLoaded", function () {
+  const pieces = document.querySelectorAll(".hub-container .piece");
+  const hubContainer = document.querySelector(".hub-container");
+  const mobileGallery = document.querySelector(".mobile-gallery");
+
+  function positionPieces() {
+    if (window.innerWidth > 768) {
+      // Enable Circle Layout
+      hubContainer.style.display = "flex";
+      mobileGallery.style.display = "none";
+
+      const radius = 280; // Maintain circle layout
+      const centerX = window.innerWidth / 2;
+      const centerY = 400;
+
+      pieces.forEach((piece, index) => {
+        const angle = (index / pieces.length) * (2 * Math.PI);
+        const x = centerX + radius * Math.cos(angle);
+        const y = centerY + radius * Math.sin(angle);
+
+        piece.style.position = "absolute";
+        piece.style.left = `${x}px`;
+        piece.style.top = `${y}px`;
+        piece.style.width = "80px";
+        piece.style.maxWidth = "80px";
+      });
+    } else {
+      // Enable Mobile Layout
+      hubContainer.style.display = "none";
+      mobileGallery.style.display = "block";
+    }
+  }
+
+  positionPieces(); // Run on load
+  window.addEventListener("resize", positionPieces); // Run on resize
+});
+
+
 $(document).ready(function() {
   $(window).on('beforeunload', function() {
     window.scrollTo(0, 0);
   });
 
-  /* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
-  particlesJS.load('landing', 'assets/particles.json', function() {});
+  let configFile = "/assets/js/particles-studio-museum.json"; // Default
+
+  if (window.location.pathname.includes("studio-museum")) {
+    configFile = "/assets/js/particles-studio-museum.json";
+  } else if (window.location.pathname.includes("work")) {
+    configFile = "/assets/particles.json";
+  } else if (window.location.pathname.includes("inane")) {
+    configFile = "/assets/js/blog-particles.json";
+  }
+
+  console.log("Path detected:", window.location.pathname);
+  console.log("Using config file:", configFile);
+
+
+  /* Load the correct particles configuration */
+  particlesJS.load('landing', configFile, function() {
+    console.log("Loaded particles config:", configFile);
+  });
 
   // Typing Text
   var element = document.getElementById('txt-rotate');

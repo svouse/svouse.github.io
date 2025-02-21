@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Daily Inanity</title>
+  <meta name="description" content="A daily inane thought.">
+
+  <link rel="stylesheet" href="/assets/css/main.min.css">
+  <link rel="stylesheet" href="/assets/css/vendors.min.css">
+
+<!-- Load jQuery first -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Then load your scripts -->
+<script defer src="/assets/js/vendors.min.js"></script>
+<script defer src="/assets/js/app.min.js"></script>
+<script defer src="/assets/js/daily-inanity.min.js"></script>
+</head>
+
+<body id="inane-home">
+<div id="landing">
+
+<div id="preloader">
+  <div class="load">
+    <hr />
+    <hr />
+    <hr />
+    <hr />
+  </div>
+</div>
+
+  <!-- Navigation Buttons -->
+  <button id="prev-btn" class="nav-button left">previous</button>
+  <button id="back-btn" onclick="history.back()">Back</button>
+  <button id="next-btn" class="nav-button right">next</button>
+
+  <!-- The content card -->
+  <div id="inane-card">
+    <p id="inane-text">Loading...</p>
+  </div>
+</div>
+
+</body>
+</html>
