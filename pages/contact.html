@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Sage Vousé, a multimedia artist working with ceramic, kiln-cast glass, and novel view synthesis.">
+    <title>Contact - Sage Vousé</title>
+    <link rel="stylesheet" href="/assets/css/main.min.css">
+    <link rel="stylesheet" href="/assets/css/vendors.min.css">
+</head>
+<body class="contact">
+<a id="back-btn" href="/">Back</a>
+
+<div class="layout">
+    <div class="content-card">
+        <h1>Contact</h1>
+        <p>I'm available for inquiries, commissions, collabs, vibes, etc etc. </p> <p>I can be contracted to make normal websites or weird ones.
+        You can email me at <a href="mailto:s.vouse@gmail.com">s.vouse@gmail.com</a>, or use the form below.</p>
+
+        <form action="https://formspree.io/f/mqaerlkz" method="POST">
+            <label>
+                Your Name:
+                <input type="text" name="name" required>
+            </label>
+            <label>
+                Your Email:
+                <input type="email" name="email" required>
+            </label>
+            <label>
+                Subject:
+                <input type="text" name="subject" required>
+            </label>
+            <label>
+                Your Message:
+                <textarea name="message" required></textarea>
+            </label>
+            <div class="button-container">
+                <button type="submit">Send Message</button>
+            </div>
+        </form>
+
+        <p id="response-message"></p>
+    </div>
+</div>
+
+<script>
+    const form = document.querySelector("form");
+    const responseMessage = document.getElementById("response-message");
+
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const formData = new FormData(form);
+        const response = await fetch(form.action, {
+            method: form.method,
+            body: formData,
+            headers: { "Accept": "application/json" },
+        });
+
+        if (response.ok) {
+            form.style.display = "none";
+            responseMessage.textContent = "Thanks for your message! I'll get back to you soon.";
+            responseMessage.style.color = "#20C20E"; // Hacker green
+            responseMessage.style.fontSize = "1.2rem";
+            responseMessage.style.textAlign = "center";
+        } else {
+            responseMessage.textContent = "Oops! Something went wrong. Please try again.";
+            responseMessage.style.color = "red";
+            responseMessage.style.fontSize = "1.2rem";
+            responseMessage.style.textAlign = "center";
+        }
+    });
+</script>
+
+</body>
+</html>

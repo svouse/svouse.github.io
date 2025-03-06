@@ -4,10 +4,52 @@
 @import url("https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap");
 
 @font-face {
-    font-family: 'Aphasia';
-    src: url('/assets/fonts/AphasiaBT-Roman.ttf') format('truetype');
+    font-family: 'VT323';
+    src: url('/assets/fonts/VT323-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
+}
+
+.curious-page {
+  background: url('/assets/images/bones.png') no-repeat center center fixed;
+  background-size: cover;
+}
+
+body.piece-page {
+  background: url('/assets/images/rosemary.png') no-repeat center center fixed;
+  background-size: cover;
+}
+
+body.studio-museum {
+  background: url('/assets/images/bellyditherportrait.png') no-repeat center center fixed;
+  background-size: cover;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+body.about {
+  background: url('/assets/images/me.png') no-repeat center center fixed;
+  background-size: cover;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+body.work {
+  background: url('/assets/images/maw.png') no-repeat center center fixed;
+  background-size: cover;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+body.contact{
+  background: url('/assets/images/hive_hole.png') no-repeat center center fixed;
+  background-size: cover;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
 }
 
 /* Variables */
@@ -15,25 +57,21 @@
 $small-screen: 48em !default;
 $medium-screen: 62em !default;
 $large-screen: 75em !default;
-$font-family: "Aphasia";
-$font-family-numbers: "Aphasia";
+$font-family: "VT323";
+$font-family-numbers: "VT323";
 $font-size-base: 1rem !default;
 $font-size-h1: 2rem !default;
 $font-weight-strong: 600;
-$text-color: #fff !default;
-$bg-color: rgba(255, 243, 222, 1);
-$card-bg-color: linear-gradient(
-  145deg,
-  rgba(115, 115, 115, 0.15) 15%,
-  rgba(43, 45, 47, 1) 80%
-);
-$primary-color: #ff073a;
+$text-color: white !default;
+$bg-color: #fff;
+$card-bg-color:
+  rgba(0, 0, 0, 1);
+$primary-color: #20C20E;
 
 /* General */
 
 html {
-  overflow-x: hidden; 
-  background: $bg-color;
+  overflow-x: hidden;
   color: $text-color;
   font-family: $font-family;
   font-size: $font-size-base;
@@ -45,14 +83,6 @@ body {
   height: 100%;
 }
 
-.piece {
-
-  }
-
-.piece:hover{
-
-}
-
 backarrow {
     position: relative;
 }
@@ -60,10 +90,6 @@ backarrow img {
     position: absolute;
     top: 0px;
     right: 0px;
-}
-
-section .about_piece {
-  left:200px;
 }
 
 p .piece_lore {
@@ -78,8 +104,6 @@ span .medium {
   left:200px
 }
 
-
-
 /* Typography */
 
 h1 {
@@ -93,11 +117,11 @@ p {
 }
 
 a {
-  color: #559f0b;
+  color:$text-color;
   text-decoration: none;
 
   &:hover {
-    color: $text-color;
+    color: $primary-color;
   }
 }
 
@@ -122,26 +146,19 @@ a {
 
 /* Layout */
 
-.layout {
-  margin: 0.5rem;
-  max-width: $large-screen;
-  padding: 0.5rem 0.5rem;
-}
-
 .layout .card {
-  background: #2b1102;
-  border-radius: 2rem;
+  background: #000000;
   margin: 3rem 0;
   padding: 1rem 2rem;
 }
 
 .layout .card .title {
-  text-align: center;
+  text-align: left;
   position: relative;
 }
 
 .layout .card .subtitle {
-  text-align: center;
+  text-align: left;
 }
 
 .layout .card .description {
@@ -169,29 +186,25 @@ a {
     inset -1px -2px 2px rgba(210, 210, 210, 0.4);
 }
 
-.neumorphism-card {
-  box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 1),
-    inset -2px -2px 4px rgba(99, 99, 99, 1);
-}
-
-.neumorphism-card-big {
-  box-shadow: 5px 5px 4px #161718, -5px -5px 4px #404346;
-}
-
 /* Preloader */
 
 #preloader {
-  align-items: center;
-  background: $bg-color;
-  display: flex;
-  height: 100%;
-  justify-content: center;
+  position: fixed;
+  top: 0;
   left: 0;
-  margin: 0.5rem;
-  padding: 0.5rem;
-  position: absolute;
-  right: 0;
-  z-index: 999;
+  width: 100%;
+  height: 100vh;
+  background-color: black; /* Full black background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999; /* Ensure it stays on top */
+
+  /* Background image */
+  background-image: url('/assets/images/hands.png');
+  background-size: contain; /* Adjust as needed */
+  background-position: center;
+  background-repeat: no-repeat;
 
   .load {
     height: 6rem;
@@ -210,7 +223,7 @@ a {
     position: absolute;
     width: 40%;
   }
-
+/*
   .load :first-child {
     animation-delay: -1.5s;
   }
@@ -242,13 +255,12 @@ a {
     75% {
       transform: translate(0, 160%);
     }
-  }
+  }*/
 }
 
 /* Footer */
 
 .footer {
-  background: $bg-color;
   color: $text-color;
   margin: 0.5rem;
   padding: 1rem;
@@ -260,22 +272,99 @@ a {
 
   &:hover,
   &:focus {
-    background: $bg-color;
     color: $text-color;
   }
 }
 
-/* Landing Page */
-
 #landing {
-  background: $bg-color;
-  color: $text-color;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
   display: flex;
-  height: 100%;
-  margin: 0.5rem;
-  padding: 0.5rem;
-  text-align: center;
+  align-items: center;
+  justify-content: center;
 }
+
+/* Desktop Hub Layout */
+.hub-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+}
+
+.piece {
+  width: clamp(100px, 12vw, 160px) !important;
+  max-width: 150px !important;
+  height: auto !important;
+}
+
+.piece:hover {
+  transform: scale(1.2);
+  filter: brightness(1.1) drop-shadow(2px 2px 20px rgba(0, 255, 200, 1));
+}
+
+/* Mobile Layout (hidden by default on desktop) */
+.mobile-gallery {
+  display: none;
+  padding: 20px;
+}
+
+/* Mobile image scroll styling */
+.scroll-gallery {
+  display: flex;
+  overflow-x: auto;
+  gap: 10px;
+  padding-bottom: 10px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.5) transparent;
+  position: relative;
+  white-space: nowrap;
+}
+
+.scroll-gallery img {
+  max-height: 150px;
+  flex-shrink: 0;
+  transition: transform 0.2s ease-in-out;
+}
+
+.scroll-gallery img:hover {
+  transform: scale(1.1);
+}
+
+/* Scrollbar Styling */
+.scroll-gallery::-webkit-scrollbar {
+  height: 8px;
+}
+
+.scroll-gallery::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 4px;
+}
+
+.scroll-gallery::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Mobile Styles */
+@media only screen and (max-width: 768px) {
+
+  #landing.work {
+    display: none;
+  }
+  .hub-container {
+    display: none !important; /* Hide desktop circle layout */
+  }
+
+  .mobile-gallery {
+    display: block !important; /* Show mobile layout */
+  }
+
+  .scroll-gallery img {
+    max-height: 200px; /* Make images slightly larger on mobile */
+  }
+}
+
 
 .landing-title {
   left: 0;
@@ -310,7 +399,6 @@ a {
       position: absolute;
       top: 0px;
       transition: all 0.5s ease-in-out;
-      width: 100%;
     }
 
     .social-svg {
@@ -949,4 +1037,726 @@ a {
   100% {
     bottom: 0;
   }
+}
+
+.content {
+  position: absolute;
+  color: $text-color;
+  font-size: 1.5rem;
+  background: $card-bg-color;
+}
+
+.menu {
+  top: 40%;
+  right: 5%;
+  padding: 20px;
+}
+
+.unserious {
+  top: 60%;
+  right: 2%;
+  padding: 20px;
+  width: 12%;
+  background-color: white;
+  color: black;
+  border: 4px solid $card-bg-color;
+  z-index: 1;
+}
+
+ul {
+  list-style: none;
+  padding: 0px;
+  cursor: pointer;
+}
+ul li:before {
+  content: "\25B1";
+}
+
+ul li:hover:before {
+  content: "\25B0";
+}
+
+@keyframes border-blink {
+  0% { filter: drop-shadow(0 0 5px #20C20E) drop-shadow(0 0 10px #20C20E); }
+  50% { filter: drop-shadow(0 0 2px #20C20E) drop-shadow(0 0 5px #20C20E); }
+  100% { filter: drop-shadow(0 0 5px #20C20E) drop-shadow(0 0 10px #20C20E); }
+}
+
+#comic-banner {
+  position: absolute;
+  top: 6%;
+  left: 1%;
+  height: auto;
+  transform: rotate(-35deg);
+  z-index: 1;
+}
+
+#comic-bg {
+  width: 17.5rem;
+  height: 10rem;
+  display: block;
+}
+
+#comic-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-60%, -50%);
+  font-size: 1.5rem;
+  color: $text-color;
+  text-align: center;
+}
+
+@media only screen and (max-width: 768px) {
+  #landing {
+    display: block !important; /* Ensure it's visible */
+    width: auto;
+    min-height: 90vh; /* Adjust height dynamically */
+  }
+
+  #landing img {
+    width: 100%; /* Scale image for smaller screens */
+    position: relative; /* Ensure it's positioned properly */
+    display: block;
+    margin: 0 auto; /* Center the image */
+  }
+}
+
+/* Fullscreen background */
+#inane-home {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  position: relative;
+}
+
+/* The card at the bottom */
+#inane-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  color: black;
+  font-size: 1.5rem;
+  font-family: 'VT323', monospace;
+  padding: 20px;
+  text-align: left;
+  border: 2px solid black;
+  max-width: 60%;  /* Prevents the card from becoming too wide */
+  min-width: 300px; /* Ensures a reasonable size for small screens */
+  max-height: 60vh; /* Allows larger text but prevents overflow */
+  overflow-y: auto; /* Enables scrolling if text is too long */
+  box-shadow: 4px 4px 0px black; /* Adds a subtle shadow effect */
+}
+
+/* Responsive Adjustments */
+@media only screen and (max-width: 768px) {
+  #inane-card {
+    max-width: 80%; /* Slightly wider on mobile */
+    font-size: 1.2rem; /* Slightly smaller text for readability */
+    padding: 15px;
+  }
+}
+
+/* Moving dotted border effect */
+@keyframes border-move {
+  0% { border-left: 3px dotted transparent; }
+  50% { border-left: 3px dotted #20C20E; }
+  100% { border-left: 3px dotted transparent; }
+}
+
+.nav-button {
+  position: absolute;
+  background: white;
+  color: black;
+  font-size: 1.2rem;
+  padding: 10px;
+  border: 2px solid black;
+  cursor: pointer;
+  z-index: 10;
+  width: 10%;
+  bottom: 5%;
+}
+
+.nav-button:hover {
+  background: black;
+  color: white;
+  border: 2px solid white;
+}
+
+/* Ensure correct placement */
+.nav-button.left {
+  left: 10%;  /* Puts 'previous' button on the left */
+}
+
+.nav-button.right {
+  right: 10%; /* Puts 'next' button on the right */
+}
+
+.nav-button:hover {
+  background: $card-bg-color;
+  color: $primary-color;
+  border: 2px solid $primary-color;
+}
+
+/* Fullscreen background */
+#password-page {
+  background: url('/assets/images/studio.JPG') no-repeat center center fixed;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Main container (nicely padded) */
+#password-container {
+  background: $card-bg-color;
+  color: white;
+  padding: 30px;
+  text-align: center;
+  width: 15%;
+  font-family: 'VT323', monospace;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  border-radius: 10px;
+}
+
+/* Style radio buttons */
+/* Make radio button labels bigger */
+label {
+  font-size: 1.5rem;  /* Increases text size */
+  font-weight: bold;
+  display: block;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+/* Make password and name labels larger */
+.label {
+  font-size: 1.3rem;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* Increase input field and button sizes */
+input {
+  font-size: 1.3rem;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+
+
+input, textarea {
+  width: 100%; /* Ensures inputs align */
+  padding: 12px; /* Matches radio buttons */
+  margin-bottom: 15px; /* Adds spacing between fields */
+  font-size: 1rem;
+  font-family: "VT323", monospace;
+  border: 2px solid white;
+  background: black;
+  color: white;
+  outline: none;
+  transition: border 0.3s;
+}
+
+input:focus, textarea:focus {
+  border: 2px solid #20C20E; /* Highlight effect */
+}
+
+form label {
+  display: block;
+  font-size: 1.2rem;
+  margin-bottom: 5px; /* Space between label and input */
+}
+
+form input,
+form textarea {
+  width: 90%; /* Ensures all inputs align */
+  padding: 12px; /* Matches radio buttons */
+  margin-bottom: 20px; /* Space between fields */
+  font-size: 1rem;
+  font-family: "VT323", monospace;
+  border: 2px solid white;
+  background: black;
+  color: white;
+  outline: none;
+  transition: border 0.3s;
+}
+
+form input:focus,
+form textarea:focus {
+  border: 2px solid #20C20E; /* Green focus effect */
+}
+
+/* Custom radio buttons */
+input[type="radio"] {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid white;
+  border-radius: 50%;
+  outline: none;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+}
+
+input[type="radio"]:checked::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background: $primary-color;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Labels for password and name fields */
+input {
+  width: 50%;
+  padding: 10px;
+  margin: 5px 0;
+  font-size: 1rem;
+  text-align: center;
+  border: 2px solid $text-color;
+  background: black;
+  color: white;
+}
+
+form {
+  display: block; /* Keeps form fields left-aligned */
+}
+
+.button-container {
+  display: flex;
+  justify-content: center; /* Centers the button */
+}
+
+button {
+  padding: 12px 20px;
+  font-size: 1.2rem;
+  font-family: "VT323", monospace;
+  background: #000;
+  color: #20C20E;
+  border: 2px solid #20C20E;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: background 0.3s, color 0.3s, border 0.3s;
+}
+
+button:hover {
+  background: #20C20E;
+  color: #000;
+  border: 2px solid #000;
+}
+
+/* Hide sections by default */
+#password-section, #friend-section {
+  display: none;
+  width: 100%;
+}
+
+/* Error message */
+#error-message {
+  color: red;
+  font-size: 1rem;
+  display: none;
+}
+
+/* Reset button styles to prevent full height */
+#back-btn {
+  position: absolute;
+  left: 2%;
+  top: 3%;
+  background: white;
+  color: $card-bg-color;
+  font-size: 1.5rem;
+  padding: 10px 30px;
+  border: 2px solid $card-bg-color;
+  cursor: pointer;
+  z-index: 10;
+}
+
+/* Hover effect */
+#back-btn:hover {
+  background: $card-bg-color;
+  color: $primary-color;
+  border: 2px solid $primary-color;
+  cursor: pointer;
+}
+
+/* Sticky Navigation Bar */
+#sticky-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-around;
+  font-size: 1.2rem;
+  z-index: 1000; /* Ensures it's always on top */
+}
+
+.nav-link {
+  cursor: pointer;
+  color: #20C20E;
+  padding: 10px 15px;
+  transition: color 0.3s;
+}
+
+.nav-link:hover {
+  color: white;
+}
+
+/* Ensure sections take up the full viewport height */
+section {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  text-align: left;
+  padding: 50px;
+  position: relative;
+  opacity: 0;
+  transform: translateY(50px); /* Start slightly lower */
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+/* Active class - will be added by JS when section is visible */
+section.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* Make sure background images fit properly */
+#me, #practice, #working {
+  background-size: contain; /* Ensures full image is visible */
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Backgrounds for Each Section */
+#methods {
+  background-image: url('/assets/images/border.png');
+}
+
+#themes {
+  background-image: url('/assets/images/themes.png');
+}
+
+#current-inspiration {
+  background-image: url('/assets/images/hive_hole.png');
+}
+
+#current-projects {
+  background-image: url('/assets/images/current-projects.png');
+}
+
+#working {
+  background-image: url('/assets/images/blue_border.png');
+}
+
+/* Left & Right Positioning */
+.content-card {
+  width: 50%;
+  background: $card-bg-color;
+  padding: 20px;
+  font-size: 1.5rem;
+  margin: auto; /* Centers horizontally */
+  position: absolute;
+  left: 25%;
+}
+
+.content-card p {
+  margin-right: 2%;
+}
+
+.content-card h1{
+  text-align: center;
+}
+
+
+/* Shift About section further left on larger screens */
+.content-card.left {
+  position: absolute;
+  left: 5%; /* Adjust to shift it further left */
+}
+
+/* Make About section full width with side margins on mobile */
+@media only screen and (max-width: 768px) {
+  .content-card.left {
+    position: static; /* Remove absolute positioning for better stacking */
+    width: 90%; /* Nearly full width */
+    margin: 5% auto; /* Center with margins on either side */
+    padding: 15px;
+  }
+}
+
+/* Image containers */
+.image-container {
+  width: 30%;
+  text-align: center;
+}
+
+.image-container img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Sticky Navigation */
+#sticky-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-around;
+  font-size: 1.2rem;
+  z-index: 1000;
+}
+
+.nav-link {
+  cursor: pointer;
+  padding: 10px 15px;
+  transition: color 0.3s;
+}
+
+.nav-link:hover {
+  color: white;
+}
+
+/* Sticky "Back to Top" button */
+#back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: $card-bg-color;
+  color: $primary-color;
+  font-size: 1.5rem;
+  padding: 10px;
+  border: 2px solid $primary-color;
+  cursor: pointer;
+  display: none;
+}
+
+#back-to-top:hover {
+  background: white;
+  color: $card-bg-color;
+  border: 2px solid $card-bg-color;
+}
+
+/* Default link styling for all .card elements (excluding homepage) */
+.content-card a {
+  color: $primary-color; /* Green by default */
+  text-decoration: none; /* No underline initially */
+  transition: text-decoration 0.2s ease-in-out;
+}
+
+/* Underline on hover */
+.content-card a:hover {
+  text-decoration: underline;
+}
+
+/* Ensures .piece-layout is positioned properly in the viewport */
+.piece-layout {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  width: 100%;
+  margin-top: 10vh; /* Pushes content down */
+}
+
+/* Centers the iframes properly */
+.piece-3d {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Ensures proper vertical alignment */
+  gap: 20px; /* Adds space between iframes */
+  width: 50%;
+}
+
+/* Ensures the text is spaced properly */
+.piece-info {
+  flex: 1;
+  width: 50%;
+  background: rgba(0, 0, 0, 0.85); /* Keeps it readable */
+  padding: 25px;
+  margin-top: 5vh; /* Pushes the text down */
+  border: 2px solid black;
+  color: #ccc;
+}
+
+/* Ensures iframe does not overlap */
+.piece-3d iframe {
+  width: 85%;
+  height: 480px;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+
+/* Title Styling */
+.piece-title {
+  font-size: 2rem;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+/* Medium Label */
+.piece-medium {
+  display: block;
+  font-size: 1.2rem;
+  text-align: center;
+  color: #ccc;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+}
+
+/* Description */
+.piece-description {
+  font-size: 1.7rem;
+  line-height: 1.8;
+  text-align: justify;
+  max-width: 90%;
+  margin: 10px auto;
+  padding-top: 20px;
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+  .piece-layout {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .piece-3d, .piece-info {
+    max-width: 100%;
+  }
+
+  .piece-3d iframe {
+    height: 300px;
+  }
+
+  .piece-info {
+    width: calc(100% - 20px); /* Full width minus 10px margin on each side */
+    margin: 0 10px; /* 10px margin on left and right */
+    padding: 15px;
+  }
+
+  .piece-description {
+    font-size: 1.2rem; /* Slightly smaller font for mobile */
+    line-height: 1.6;
+    text-align: justify;
+    max-width: 100%; /* Allows full use of space */
+    margin: 0 20px;
+  }
+}
+
+/* ✅ Ensure particles are inside #piece-layout */
+#piece-layout canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Ensure particles stay behind */
+}
+
+.scroll-message {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  color: white;
+  text-align: center;
+  animation: fade-blink 1.5s infinite alternate;
+}
+
+@keyframes fade-blink {
+  0% { opacity: 1; }
+  50% { opacity: 0.7; }
+  100% { opacity: 1; }
+}
+
+#thank-you-message {
+  position: absolute;
+  top: 65%;
+  left: 45%;
+  transform: translate(-50%, -50%);
+  font-size: 1.5rem;
+  color: black;
+  text-align: center;
+  background: white;
+  padding: 10px 20px;
+  border: 2px solid black;
+  width: 20%;
+}
+
+.spooky {
+  font-size: 1.5rem;
+}
+
+.retro-box {
+  position: absolute;
+  padding: 15px;
+  width: 250px;
+  text-align: center;
+  background: white;
+  color: black;
+  font-size: 1.5rem;
+  padding: 20px;
+  text-align: left;
+  border: 2px solid black;
+  overflow-y: auto; /* Enables scrolling if text is too long */
+  box-shadow: 4px 4px 0px black; /* Adds a subtle shadow effect */
+}
+
+/* iFrame Boxes */
+.iframe-box iframe {
+  width: 100%;
+  height: 150px;
+  border: none;
+  background: black;
+}
+
+/* Audio Player */
+.audio-player ul {
+  list-style: none;
+  padding: 0;
+}
+
+.audio-player li {
+  cursor: pointer;
+  text-align: left;
+  padding: 5px;
+}
+
+.audio-player li:hover {
+  background: rgba(32, 194, 14, 0.2);
 }
