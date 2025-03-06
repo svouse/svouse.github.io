@@ -42,7 +42,7 @@ function stylesVendors() {
  */
 function scripts() {
     return gulp
-        .src([ '_js/app.js', '_js/daily-inanity.js', '_js/access-control.js', '_js/scrolling-nav.js' ])  // Include daily-inanity.js
+        .src([ '_js/app.js', '_js/daily-inanity.js', '_js/access-control.js', '_js/scrolling-nav.js', '_js/whats-sage-up-to.js' ])
         .pipe(rename({ suffix: '.min' }))
         .pipe(uglify())
         .pipe(gulp.dest('_site/assets/js'))

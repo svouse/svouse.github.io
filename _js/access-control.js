@@ -39,23 +39,13 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Handle name input for friends
-    friendBtn.addEventListener("click", function () {
-        const friendName = friendNameInput.value.trim();
-        if (friendName) {
-            window.location.href = `/friend-projects.html?name=${encodeURIComponent(friendName)}`;
-        } else {
-            alert("Please enter your name.");
-        }
-    });
-
     // Handle navigation for non-curators
     generalBtn.addEventListener("click", function () {
         const selectedRole = document.querySelector("input[name='role']:checked").value;
         if (selectedRole === "artist") {
             window.location.href = "/artist-insights.html";
         } else if (selectedRole === "curious") {
-            window.location.href = "/portfolio.html";
+            window.location.href = "/pages/what_is_sage_up_to.html";
         }
     });
 

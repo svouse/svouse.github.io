@@ -12,8 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
       console.log("Loaded particles for #piece-layout.");
     });
 
-    // ✅ Ensure particles stay behind but within #piece-layout
-    pieceLayout.style.position = "relative"; // Ensure it's positioned for particles
+    pieceLayout.style.position = "relative";
   }
 });
 
@@ -21,7 +20,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const hubContainer = document.querySelector(".hub-container");
   const mobileGallery = document.querySelector(".mobile-gallery");
 
-  // If neither exist, stop running this part of the script
   if (!hubContainer && !mobileGallery) {
     console.log("Skipping positionPieces(): Not on a work page.");
     return;
@@ -35,21 +33,46 @@ document.addEventListener("DOMContentLoaded", function () {
       hubContainer.style.display = "flex";
       mobileGallery.style.display = "none";
 
-      const radius = window.innerWidth / 4;
-      const centerX = window.innerWidth / 2;
-      const centerY = 350;
+      const centerX = window.innerWidth / 2 + 20; // Moves spiral right
+      const centerY = window.innerHeight / 2 + 60; // Moves spiral lower
+
+      let a = 0;  // ⬇️ Smaller start radius for an even tighter curl
+      let b = 5;  // ⬇️ Slower outward expansion
+      let segmentLength = 210; // Keeps pieces evenly spaced
+
+      let theta = -18; // Start angle
+      let lastX = centerX;
+      let lastY = centerY;
 
       pieces.forEach((piece, index) => {
-        if (!piece) return;
-        const angle = (index / pieces.length) * (2 * Math.PI);
-        const x = centerX + radius * Math.cos(angle);
-        const y = centerY + radius * Math.sin(angle);
+        let found = false;
 
-        piece.style.position = "absolute";
-        piece.style.left = `${x}px`;
-        piece.style.top = `${y}px`;
-        piece.style.width = "80px";
-        piece.style.maxWidth = "80px";
+        while (!found) {
+          theta += 0.050;  // ⬆️ Faster initial rotation to make the curl **tighter**
+          let r = a + b * theta; // Archimedean spiral equation
+
+          // Gradually increase `b` to smooth the outward expansion
+          if (theta > Math.PI) {
+            b += 0.03;
+          }
+
+          let x = centerX + r * Math.cos(theta);
+          let y = centerY + r * Math.sin(theta);
+
+          let distance = Math.sqrt((x - lastX) ** 2 + (y - lastY) ** 2);
+          if (distance >= segmentLength) {
+            lastX = x;
+            lastY = y;
+            found = true;
+
+            piece.style.position = "absolute";
+            piece.style.left = `${x}px`;
+            piece.style.top = `${y}px`;
+            piece.style.width = "90px";
+            piece.style.maxWidth = "90px";
+            piece.style.transform = `translate(-50%, -50%)`;
+          }
+        }
       });
     } else {
       hubContainer.style.display = "none";
