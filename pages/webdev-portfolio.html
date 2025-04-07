@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sage Vousé Portfolio</title>
+  <style>
+    body {
+      background: url('/assets/images/hive_hole.png') no-repeat center center fixed;
+      font-family: sans-serif;
+      margin: 0;
+      padding: 40px 20px;
+      color: black;
+    }
+    .project-wrapper {
+      max-width: 1000px;
+      margin: 0 auto 60px;
+      padding: 0 20px;
+    }
+    .retro-box {
+      background: white;
+      color: black;
+      font-size: 1.2rem;
+      padding: 20px;
+      text-align: left;
+      border: 2px solid black;
+      box-shadow: 4px 4px 0px black;
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      width: 100%;
+    }
+    .retro-box img {
+      width: 50%;
+      object-fit: cover;
+    }
+    .retro-box .info {
+      width: 50%;
+    }
+    .retro-box h2 {
+      margin: 0 0 10px;
+      font-size: 1.5rem;
+    }
+    .retro-box .tech {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .retro-box a {
+      display: inline-block;
+      margin-top: 15px;
+      text-decoration: underline;
+      color: black;
+    }
+
+    .back-button {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background: white;
+      color: black;
+      border: 2px solid black;
+      padding: 8px 12px;
+      font-size: 1rem;
+      text-decoration: none;
+      box-shadow: 4px 4px 0px black;
+      z-index: 999;
+    }
+    .back-button:hover {
+      background: black;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+<a href="https://sagevouse.com" class="back-button">← Back to my personal site</a>
+  <div class="project-wrapper">
+    <div class="retro-box">
+      <img src="/assets/images/ptp.png" alt="Power the Polls Screenshot">
+      <div class="info">
+        <h2>Power the Polls</h2>
+        <div class="tech">Made with: React, TypeScript, JavaScript, Git, SQL</div>
+        <p>I’ve maintained and expanded this React/Node-based onboarding platform over the past three years. It uses a custom SQL database and integrates with a headless CMS. A full technical overview is available <a href="https://docs.google.com/document/d/1ZVYzwdf_w2a75rrip42cQUZDgAWu4IdJelvnm3jx49k/edit?usp=sharing" target="_blank"> here </a>. Details on the headless CMS instance for this project can be found <a href="https://docs.google.com/document/d/1IcSxBwfUFEksg5HOuBBk7Y7Dtkg3XLdxvgT9B5goPUY/edit?tab=t.0#heading=h.yk7avb4unfou" target="_blank"> here </a>.</p>
+        <a href="https://www.powerthepolls.org" target="_blank">→ Live</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-wrapper">
+    <div class="retro-box">
+      <img src="/assets/images/vot-er.png" alt="Vot-ER Screenshot">
+      <div class="info">
+        <h2>Vot-ER</h2>
+        <div class="tech">Made with: WordPress, PHP, JS, SQL</div>
+        <p>Led a full redesign and infrastructure refactor of the main WordPress site. Improved performance, integrated custom campaign logic, and established long-term scalability patterns.</p>
+        <a href="https://vot-er.org" target="_blank">→ Live</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-wrapper">
+    <div class="retro-box">
+      <img src="/assets/images/archurb.png" alt="Archive of Urban Futures Screenshot">
+      <div class="info">
+        <h2>Archive of Urban Futures</h2>
+        <div class="tech">Made with: JavaScript, HTML/CSS, Jekyll, Git</div>
+        <p>
+      Custom timeline UI and collage-based layout supporting storytelling through interactive, archival visuals.  Full interactive launch in May; part of the Oakland Museum exhibition in July.
+          Includes a <a href="https://archiveofurbanfutures.org/book" target="_blank">3D-rendered book</a> designed to visualize speculative urban futures—built to be accessible and modular for ongoing curatorial use.
+        </p>
+        <a href="https://archiveofurbanfutures.org" target="_blank">→ Live</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-wrapper">
+    <div class="retro-box">
+      <img src="/assets/images/archarct.png" alt="Archiving Activism Screenshot">
+      <div class="info">
+        <h2>Archiving Activism</h2>
+        <div class="tech">Made with: JavaScript, React, HTML/CSS, Git, ElasticSearch</div>
+        <p>This teaser site introduces an in-progress interactive archive for collaborative research. The full platform—launching December—will include ElasticSearch-backed filtering, accessible design, and flexible metadata structures for curatorial workflows.</p>
+        <a href="http://sagevouse.com/archivingactivism/index.html" target="_blank">→ Live</a>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

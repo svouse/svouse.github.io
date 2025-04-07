@@ -1733,8 +1733,8 @@ section.active {
   padding: 20px;
   text-align: left;
   border: 2px solid black;
-  overflow-y: auto; /* Enables scrolling if text is too long */
-  box-shadow: 4px 4px 0px black; /* Adds a subtle shadow effect */
+  overflow-y: auto;
+  box-shadow: 4px 4px 0px black;
 }
 
 /* iFrame Boxes */
@@ -1759,4 +1759,53 @@ section.active {
 
 .audio-player li:hover {
   background: rgba(32, 194, 14, 0.2);
+}
+
+.retro-section {
+  background: white;
+  color: black !important;
+  font-size: 1.5rem;
+  padding: 20px;
+  border: 2px solid black;
+  box-shadow: 4px 4px 0px black;
+  max-width: 1000px;
+  margin: 40px auto;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.retro-section * {
+  color: black !important;
+}
+
+.retro-section img {
+  width: 50%;
+  object-fit: cover;
+}
+
+.retro-section .info {
+  width: 50%;
+}
+
+.retro-section h2 {
+  margin: 0 0 10px;
+  font-size: 2rem;
+}
+
+.retro-section .tech {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.retro-section a {
+  display: inline-block;
+  margin-top: 15px;
+  text-decoration: underline;
+}
+
+.project-wrapper {
+  max-width: 1000px;
+  margin: 60px auto;
+  padding: 0 20px;
 }
