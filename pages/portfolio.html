@@ -1,313 +1,472 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sage Vousé - Portfolio</title>
-    <link rel="stylesheet" href="/assets/css/main.min.css">
-    <link rel="stylesheet" href="/assets/css/vendors.min.css">
-    <link rel="stylesheet" href="/assets/css/gallery.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
-    <script defer>
-        document.addEventListener("DOMContentLoaded", () => {
-            GLightbox({ selector: '.glightbox', touchNavigation: true, loop: true });
-        });
-    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sage Vouse | Portfolio</title>
+  <style>
+    @font-face {
+      font-family: 'VT323';
+      src: url('/assets/fonts/VT323-Regular.ttf') format('truetype');
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #111;
+      min-height: 100vh;
+      padding-bottom: 60px;
+      font-family: 'VT323', monospace;
+      color: white;
+    }
+
+    .portfolio-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      padding-top: 80px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-scans {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .hero-scan {
+      position: absolute;
+      width: 600px;
+      height: 600px;
+    }
+
+    .hero-scan:first-child {
+      left: -150px;
+      top: 25%;
+      width: 700px;
+      height: 700px;
+    }
+
+    .hero-scan:last-child {
+      right: -150px;
+      top: 30%;
+    }
+
+    .hero-scan iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      background: transparent;
+      pointer-events: auto;
+    }
+
+    .portfolio-header {
+      text-align: center;
+      margin-bottom: 60px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid #333;
+    }
+
+    .portfolio-header h1 {
+      font-size: 3rem;
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      margin-bottom: 10px;
+      color: white;
+    }
+
+    .portfolio-header .subtitle {
+      color: #20C20E;
+      font-size: 1.2rem;
+    }
+
+    .portfolio-section {
+      margin-bottom: 80px;
+      opacity: 1 !important;
+      transform: none !important;
+      height: auto !important;
+      display: block !important;
+      padding: 0 !important;
+    }
+
+    .portfolio-section h2 {
+      font-size: 1.8rem;
+      color: #20C20E;
+      margin-bottom: 30px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #333;
+    }
+
+    .statement-text {
+      background: rgba(0, 0, 0, 0.9);
+      padding: 25px;
+      margin-bottom: 20px;
+      border: 1px solid #333;
+      font-size: 1.3rem;
+      line-height: 1.8;
+      color: #ccc;
+    }
+
+    .statement-text em {
+      color: #20C20E;
+    }
+
+    .project-card {
+      background: rgba(0, 0, 0, 0.9);
+      padding: 25px;
+      margin-bottom: 25px;
+      border: 1px solid #333;
+    }
+
+    .project-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+    }
+
+    .project-card h3 a {
+      color: #20C20E;
+      text-decoration: none;
+    }
+
+    .project-card h3 a:hover {
+      text-decoration: underline;
+      color: white;
+    }
+
+    .project-card p {
+      color: #aaa;
+      font-size: 1.2rem;
+      line-height: 1.6;
+    }
+
+    .project-card .link-label {
+      margin-bottom: 10px;
+    }
+
+    .project-card .link-label a {
+      color: #20C20E;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+    .project-card .link-label a:hover {
+      text-decoration: underline;
+      color: white;
+    }
+
+    .video-item {
+      background: rgba(0, 0, 0, 0.9);
+      padding: 25px;
+      margin-bottom: 25px;
+      border: 1px solid #333;
+    }
+
+    .video-item h3 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: white;
+    }
+
+    .video-placeholder {
+      background: #000;
+      aspect-ratio: 16/9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #444;
+      margin-bottom: 15px;
+      border: 1px solid #222;
+      font-size: 1.2rem;
+    }
+
+    .video-item .description {
+      color: #888;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .ceramics-section {
+      width: 100vw;
+      margin-left: calc(-50vw + 50%);
+      padding: 0 20px;
+    }
+
+    .ceramics-section h2 {
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .ceramics-grid {
+      display: flex;
+      flex-direction: row;
+      gap: 20px;
+      overflow-x: auto;
+      padding-bottom: 15px;
+      scroll-snap-type: x mandatory;
+    }
+
+    .ceramics-statement {
+      max-width: 900px;
+      margin: 20px auto 30px;
+      color: #888;
+      font-size: 1.4rem;
+    }
+
+    .ceramics-statement a {
+      color: #20C20E;
+      text-decoration: none;
+    }
+
+    .ceramics-statement a:hover {
+      text-decoration: underline;
+      color: white;
+    }
+
+    .ceramics-hero {
+      max-width: 500px;
+      margin: 0 auto 30px;
+      text-align: center;
+    }
+
+    .ceramics-hero img {
+      width: 100%;
+      height: auto;
+    }
+
+    .ceramics-grid::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .ceramics-grid::-webkit-scrollbar-track {
+      background: #222;
+    }
+
+    .ceramics-grid::-webkit-scrollbar-thumb {
+      background: #20C20E;
+      border-radius: 4px;
+    }
+
+    .ceramic-item {
+      flex: 0 0 auto;
+      width: 350px;
+      background: rgba(0, 0, 0, 0.9);
+      padding: 20px;
+      border: 1px solid #333;
+      scroll-snap-align: start;
+    }
+
+    .ceramic-item img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .ceramic-item iframe {
+      width: 100%;
+      height: 300px;
+      border: none;
+      background: #000;
+    }
+
+    .ceramic-item .caption {
+      margin-top: 15px;
+      color: #666;
+      font-size: 1rem;
+      text-align: center;
+    }
+
+    .portfolio-footer {
+      text-align: center;
+      padding-top: 40px;
+      border-top: 1px solid #333;
+      color: #666;
+      font-size: 1rem;
+    }
+
+    .portfolio-footer a {
+      color: #20C20E;
+      text-decoration: none;
+    }
+
+    .portfolio-footer a:hover {
+      color: white;
+    }
+
+    #back-btn {
+      position: fixed;
+      left: 2%;
+      top: 3%;
+      background: white;
+      color: black;
+      font-size: 1.5rem;
+      padding: 10px 30px;
+      border: 2px solid black;
+      cursor: pointer;
+      z-index: 10;
+      text-decoration: none;
+      font-family: 'VT323', monospace;
+    }
+
+    #back-btn:hover {
+      background: black;
+      color: #20C20E;
+      border: 2px solid #20C20E;
+    }
+
+    @media (max-width: 600px) {
+      .portfolio-container {
+        padding: 20px 15px;
+        padding-top: 60px;
+      }
+
+      .portfolio-header h1 {
+        font-size: 2rem;
+      }
+
+      .statement-text,
+      .project-card p,
+      .video-item .description {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
 </head>
-<body>
-    <div class="backarrow">
-        <a href="../index.html">
-            <img src="/assets/favicon/BACK_arrow.png" alt="Back to Home" style="width:100px;height:100px;margin:0.5rem;padding: 0.5rem;position: relative;">
-        </a>
+<body class="portfolio-page">
+
+<a id="back-btn" href="/">Back</a>
+
+<div class="hero-scans">
+  <div class="hero-scan">
+    <iframe allowfullscreen loading="lazy"
+      src="https://p3d.in/e/xSnFz+spin+load+shading,dl,share,spin,link,border-hidden"></iframe>
+  </div>
+  <div class="hero-scan">
+    <iframe allowfullscreen loading="lazy"
+      src="https://p3d.in/e/Ib4JC+spin+load+shading,dl,share,spin,link,border-hidden"></iframe>
+  </div>
+</div>
+
+<div class="portfolio-container">
+
+  <div class="portfolio-header">
+    <h1>Sage Vouse</h1>
+    <p class="subtitle">Brooklyn, NY</p>
+  </div>
+
+  <!-- WEB -->
+  <div class="portfolio-section">
+    <h2>Web</h2>
+
+    <div class="project-card">
+      <h3>Could You Not Watch</h3>
+      <video src="/assets/images/cynw.mp4" autoplay loop muted playsinline style="width: 100%; margin-bottom: 15px;"></video>
+      <p>14-hour web-based performance, 2025. A ceramic object attached to a windshield wiper motor was dragged across the floor in response to live website visitors. The motor was controlled via Arduino using a simple IoT protocol. The work addressed the gap between consuming live digital content and knowing whether it produces a real effect.</p>
     </div>
 
-    <section class="portfolio">
-        <div class="gallery">
-            <!-- Cemetery -->
-            <div class="gallery-item">
-                <div class="gallery-label">
-                    <h2 class="gallery-title">Cemetery</h2>
-                    <p><strong>Material:</strong> Ceramic</p>
-                    <p><strong>Dimensions:</strong> 21x21x8 inches</p>
-                    <p><strong>Price:</strong> $1200</p>
-                    <p class="gallery-blurb">A celebration.</p>
-                </div>
+    <div class="project-card">
+      <h3>West Oakland: Yesterday, Today, Tomorrow</h3>
+      <img src="/assets/images/westoak3d.png" alt="West Oakland: Yesterday, Today, Tomorrow - 3D virtual tour" style="width: 100%; margin-bottom: 15px;">
+      <p class="link-label"><a href="https://www.westoaklandyesterdaytodaytomorrow.com" target="_blank">Link</a></p>
+      <p>3D web-based virtual walking tour, 2023. Documenting cycles of Black displacement and housing insecurity in West Oakland. Combining oral history, archival imagery, and forensic mapping, the project traces the actors involved in West Oakland's redevelopment through multigenerational narratives. In partnership with Moms4Housing as part of The Archive of Urban Futures.</p>
+    </div>
 
-                <div class="image-gallery">
-                    <a href="/assets/images/cemetery.JPG" class="glightbox" data-gallery="cemetery-gallery">
-                        <img src="/assets/images/cemetery.JPG" alt="Cemetery Image 1" class="gallery-thumbnail">
-                    </a>
-                    <a href="/assets/images/cemetery_texture.JPG" class="glightbox" data-gallery="cemetery-gallery">
-                        <img src="/assets/images/cemetery_texture.JPG" alt="Cemetery Image 1" class="gallery-thumbnail">
-                    </a>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <iframe allowfullscreen loading="lazy" frameborder="0"
-                    src="https://p3d.in/e/WOJWd+shadeless+spin+shading,dl,help,share,ar,spin,link,border,loader-hidden"
-                    class="gallery-iframe"></iframe>
-            </div>
-                        <!-- Belly -->
-            <div class="gallery-item">
-                <div class="gallery-label">
-                    <h2 class="gallery-title">Bellyy</h2>
-                    <p><strong>Material:</strong> Ceramic</p>
-                    <p><strong>Dimensions:</strong> 21x22x15 inches</p>
-                    <p><strong>Price:</strong> $800</p>
-                    <p class="gallery-blurb">A wealth.</p>
-                </div>
+    <div class="project-card">
+      <h3>Archive of Urban Futures</h3>
+      <p class="link-label"><a href="https://archiveofurbanfutures.org" target="_blank">Link</a></p>
+      <p>Interactive 3D archive, 2024. Documenting POC activism in Texas from the 1940s to present. Built in collaboration with a research team at the University of Texas at Austin, the archive uses a navigable cloud rather than a linear taxonomy to emphasize collective, intergenerational knowledge. Launched to accompany an Oakland Museum of California exhibit on the history of redlining and community-led stewardship.</p>
+    </div>
 
-                <div class="image-gallery">
-                    <a href="/assets/images/belly.jpg" class="glightbox" data-gallery="cemetery-gallery">
-                        <img src="/assets/images/belly.jpg" alt="Belly Image 1" class="gallery-thumbnail">
-                    </a>
-                    <a href="/assets/images/bellyportrait.jpg" class="glightbox" data-gallery="cemetery-gallery">
-                        <img src="/assets/images/bellyportrait.jpg" alt="Belly Image 2" class="gallery-thumbnail">
-                    </a>
-                </div>
-            </div>
-            <div class="gallery-item">
-                Scan coming soon!
-            </div>
+    <div class="project-card">
+      <h3>Archiving Activism</h3>
+      <video src="/assets/images/archact.mp4" autoplay loop muted playsinline style="width: 100%; margin-bottom: 15px;"></video>
+      <p class="link-label"><a href="https://archivingactivism.org" target="_blank">Link</a></p>
+      <p>Interactive 3D archive, 2025. Approximately one hundred source materials documenting student-led social movements. Designed for researchers, activists, and the public, the project frames activism as an ongoing communal process rather than isolated historical moments. Developed with Dr. Ashanté M. Reese and Dr. Ashley Farmer at the University of Texas at Austin.</p>
+    </div>
+  </div>
 
-            <!-- Appendix -->
-            <div class="gallery-item">
-                <div class="gallery-label">
-                    <h2 class="gallery-title">Appendix</h2>
-                    <p><strong>Material:</strong> Ceramic</p>
-                    <p><strong>Dimensions:</strong> 14x8x5 inches</p>
-                    <p><strong>Price:</strong> $400</p>
-                    <p class="gallery-blurb">Leaking. Matte pink ceramic vessel.</p>
-                </div>
-                <div class="image-gallery">
-                    <a href="/assets/images/IMG_5898.jpg" class="glightbox" data-gallery="appendix-gallery">
-                        <img src="/assets/images/IMG_5898.jpg" alt="Appendix Image 1" class="gallery-thumbnail">
-                    </a>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <iframe allowfullscreen loading="lazy" frameborder="0"
-                    src="https://p3d.in/e/Ib4JC+shadeless+spin+shading,dl,help,share,ar,spin,link,border,loader-hidden"
-                    class="gallery-iframe"></iframe>
-            </div>
+  <!-- VIDEO / PERFORMANCE -->
+  <div class="portfolio-section">
+    <h2>Video</h2>
 
-            <!-- Blue -->
-            <div class="gallery-item">
-                <div class="gallery-label">
-                    <h2 class="gallery-title">Blue</h2>
-                    <p><strong>Material:</strong> Ceramic</p>
-                    <p><strong>Dimensions:</strong> 12x8x5 inches</p>
-                    <p><strong>Price:</strong> $400</p>
-                    <p class="gallery-blurb">A spinning top. Matte blue ceramic object with yellow undertones.</p>
-                </div>
-                <div class="image-gallery">
-                    <a href="/assets/images/blue.jpg" class="glightbox" data-gallery="blue-gallery">
-                        <img src="/assets/images/blue.jpg" alt="Blue Image 1" class="gallery-thumbnail">
-                    </a>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <iframe allowfullscreen loading="lazy" frameborder="0"
-                    src="https://p3d.in/e/ANIUi+shadeless+spin+shading,dl,help,share,ar,spin,link,border,loader-hidden"
-                    class="gallery-iframe"></iframe>
-            </div>
+    <div class="video-item">
+      <h3>timekeeper, timeloser</h3>
+      <video src="/assets/images/timekeeper.mp4" autoplay loop muted playsinline style="width: 100%; margin-bottom: 15px;"></video>
+      <p class="description">2025</p>
+    </div>
+  </div>
 
-            <!-- Blackhearted Lover -->
-            <div class="gallery-item">
-                <div class="gallery-label">
-                    <h2 class="gallery-title">Blackhearted Lover</h2>
-                    <p><strong>Material:</strong> Ceramic</p>
-                    <p><strong>Dimensions:</strong> 12x8x5 inches</p>
-                    <p><strong>Price:</strong> $400</p>
-                    <p class="gallery-blurb">A betrayal. Iron-washed ceramic vessel.</p>
-                </div>
-                <div class="image-gallery">
-                    <a href="/assets/images/IMG_4731.jpg" class="glightbox" data-gallery="blackhearted-gallery">
-                        <img src="/assets/images/IMG_4731.jpg" alt="Blackhearted Lover Image 1" class="gallery-thumbnail">
-                    </a>
-                    <a href="/assets/images/IMG_4733.jpg" class="glightbox" data-gallery="blackhearted-gallery">
-                        <img src="/assets/images/IMG_4733.jpg" alt="Blackhearted Lover Image 1" class="gallery-thumbnail">
-                    </a>
-                    <a href="/assets/images/IMG_4735.jpg" class="glightbox" data-gallery="blackhearted-gallery">
-                        <img src="/assets/images/IMG_4735.jpg" alt="Blackhearted Lover Image 1" class="gallery-thumbnail">
-                    </a>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <iframe allowfullscreen loading="lazy" frameborder="0"
-                    src="https://p3d.in/e/uQMuI+shadeless+spin+shading,dl,help,share,ar,spin,link,border,loader-hidden"
-                    class="gallery-iframe"></iframe>
-            </div>
+  <!-- CERAMICS -->
+  <div class="portfolio-section ceramics-section">
+    <h2>Ceramics</h2>
 
-            <!-- Totem -->
-            <div class="gallery-item">
-                <div class="gallery-label">
-                    <h2 class="gallery-title">Totem</h2>
-                    <p><strong>Material:</strong> Ceramic</p>
-                    <p><strong>Dimensions:</strong> 12x8x5 inches</p>
-                    <p><strong>Price:</strong> $300</p>
-                    <p class="gallery-blurb">A stack. Red and gray ceramic object.</p>
-                </div>
-                <div class="image-gallery">
-                    <a href="/assets/images/totem1.jpg" class="glightbox" data-gallery="totem-gallery">
-                        <img src="/assets/images/totem1_thumb.jpg" alt="Totem Image 1" class="gallery-thumbnail">
-                    </a>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <iframe allowfullscreen loading="lazy" frameborder="0"
-                    src="https://p3d.in/e/fw88w+shadeless+spin+shading,dl,help,share,ar,spin,link,border,loader-hidden"
-                    class="gallery-iframe"></iframe>
-            </div>
+    <div class="ceramics-hero">
+      <img src="/assets/images/ceramics-hero.jpg" alt="Ceramic work">
+    </div>
 
-            <!-- Sink -->
-            <div class="gallery-item">
-                <div class="gallery-label">
-                    <h2 class="gallery-title">Sink</h2>
-                    <p><strong>Material:</strong> Ceramic</p>
-                    <p><strong>Dimensions:</strong> 18x8x11 inches</p>
-                    <p><strong>Price:</strong> $600</p>
-                    <p class="gallery-blurb">A peak. Wood fired ceramic vessel.</p>
-                </div>
-                <div class="image-gallery">
-                    <a href="/assets/images/sink-2.jpg" class="glightbox" data-gallery="sink-gallery">
-                        <img src="/assets/images/sink-2.jpg" alt="Sink Image 1" class="gallery-thumbnail">
-                    </a>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <iframe allowfullscreen loading="lazy" frameborder="0"
-                    src="https://p3d.in/e/WWCr9+shadeless+spin+shading,dl,help,share,ar,spin,link,border,loader-hidden"
-                    class="gallery-iframe"></iframe>
-            </div>
+    <p class="ceramics-statement">To see scans of all pieces in conjunction with their writing, please see <a href="/pages/work.html">this page</a>.</p>
 
-            <!-- Lachrimatory 1 -->
-            <div class="gallery-item">
-                <div class="gallery-label">
-                    <h2 class="gallery-title">Lachrimatory 1</h2>
-                    <p><strong>Material:</strong> Ceramic</p>
-                    <p><strong>Dimensions:</strong> 10x8x6 inches</p>
-                    <p><strong>Price:</strong> $300</p>
-                    <p class="gallery-blurb">An initial grief. Dark green ceramic vessel.</p>
-                </div>
-                <div class="image-gallery">
-                    <a href="/assets/images/group1.jpg" class="glightbox" data-gallery="lachrimatory1-gallery">
-                        <img src="/assets/images/group1.jpg" alt="Lachrimatory 1 Image 1" class="gallery-thumbnail">
-                    </a>
-                    <a href="/assets/images/group2.jpg" class="glightbox" data-gallery="lachrimatory1-gallery">
-                        <img src="/assets/images/group2.jpg" alt="Lachrimatory 1 Image 1" class="gallery-thumbnail">
-                    </a>
-                    <a href="/assets/images/IMG_0511 2.jpg" class="glightbox" data-gallery="lachrimatory1-gallery">
-                        <img src="/assets/images/IMG_0511 2.jpg" alt="Lachrimatory 1 Image 1" class="gallery-thumbnail">
-                    </a>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <iframe allowfullscreen loading="lazy" frameborder="0"
-                    src="https://p3d.in/e/4m5uc+shadeless+spin+shading,dl,help,share,ar,spin,link,border,loader-hidden"
-                    class="gallery-iframe"></iframe>
-            </div>
+    <div class="ceramics-grid">
 
-            <!-- Lachrimatory 2 -->
-            <div class="gallery-item">
-                <div class="gallery-label">
-                    <h2 class="gallery-title">Lachrimatory 2</h2>
-                    <p><strong>Material:</strong> Ceramic</p>
-                    <p><strong>Dimensions:</strong> 10x8x6 inches</p>
-                    <p><strong>Price:</strong> $300</p>
-                    <p class="gallery-blurb">A deep grief. Matte blue ceramic vessel.</p>
-                </div>
-                <div class="image-gallery">
-                    <a href="/assets/images/group1.jpg" class="glightbox" data-gallery="lachrimatory1-gallery">
-                        <img src="/assets/images/group1.jpg" alt="Lachrimatory 1 Image 1" class="gallery-thumbnail">
-                    </a>
-                    <a href="/assets/images/group2.jpg" class="glightbox" data-gallery="lachrimatory1-gallery">
-                        <img src="/assets/images/group2.jpg" alt="Lachrimatory 1 Image 1" class="gallery-thumbnail">
-                    </a>
-                    <a href="/assets/images/IMG_0511 2.jpg" class="glightbox" data-gallery="lachrimatory1-gallery">
-                        <img src="/assets/images/IMG_0511 2.jpg" alt="Lachrimatory 1 Image 1" class="gallery-thumbnail">
-                    </a>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <iframe allowfullscreen loading="lazy" frameborder="0"
-                    src="https://p3d.in/e/J5JuZ+shadeless+spin+shading,dl,help,share,ar,spin,link,border,loader-hidden"
-                    class="gallery-iframe"></iframe>
-            </div>
+      <div class="ceramic-item">
+        <iframe allowfullscreen loading="lazy"
+          src="https://p3d.in/e/OndQZ+spin+load+shading,dl,share,spin,link,border-hidden"></iframe>
+      </div>
 
-            <!-- Lachrimatory 3 -->
-            <div class="gallery-item">
-                <div class="gallery-label">
-                    <h2 class="gallery-title">Lachrimatory 3</h2>
-                    <p><strong>Material:</strong> Ceramic</p>
-                    <p><strong>Dimensions:</strong> 10x8x6  inches</p>
-                    <p><strong>Price:</strong> $300</p>
-                    <p class="gallery-blurb">A grief softened. Pale blue ceramic vessel.</p>
-                </div>
-                <div class="image-gallery">
-                    <a href="/assets/images/group1.jpg" class="glightbox" data-gallery="lachrimatory1-gallery">
-                        <img src="/assets/images/group1.jpg" alt="Lachrimatory 1 Image 1" class="gallery-thumbnail">
-                    </a>
-                    <a href="/assets/images/group2.jpg" class="glightbox" data-gallery="lachrimatory1-gallery">
-                        <img src="/assets/images/group2.jpg" alt="Lachrimatory 1 Image 1" class="gallery-thumbnail">
-                    </a>
-                    <a href="/assets/images/IMG_0511 2.jpg" class="glightbox" data-gallery="lachrimatory1-gallery">
-                        <img src="/assets/images/IMG_0511 2.jpg" alt="Lachrimatory 1 Image 1" class="gallery-thumbnail">
-                    </a>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <iframe allowfullscreen loading="lazy" frameborder="0"
-                    src="https://p3d.in/e/XI8eE+shadeless+spin+shading,dl,help,share,ar,spin,link,border,loader-hidden"
-                    class="gallery-iframe"></iframe>
-            </div>
+      <div class="ceramic-item">
+        <iframe allowfullscreen loading="lazy"
+          src="https://p3d.in/e/WWCr9+spin+load+shading,dl,share,spin,link,border-hidden"></iframe>
+      </div>
 
-            <!-- Cracklin Jester -->
-            <div class="gallery-item">
-                <div class="gallery-label">
-                    <h2 class="gallery-title">Cracklin Jester</h2>
-                    <p><strong>Material:</strong> Ceramic</p>
-                    <p><strong>Dimensions:</strong> 16x8x12 inches</p>
-                    <p><strong>Price:</strong> $400</p>
-                    <p class="gallery-blurb">A break. Matte blue ceramic object.</p>
-                </div>
-                <div class="image-gallery">
-                    <a href="/assets/images/IMG_5441.jpg" class="glightbox" data-gallery="cracklinjester-gallery">
-                        <img src="/assets/images/IMG_5441.jpg" alt="Cracklin Jester Image 1" class="gallery-thumbnail">
-                    </a>
-                    <a href="/assets/images/IMG_5456.jpg" class="glightbox" data-gallery="cracklinjester-gallery">
-                        <img src="/assets/images/IMG_5456.jpg" alt="Cracklin Jester Image 1" class="gallery-thumbnail">
-                    </a>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <iframe allowfullscreen loading="lazy" frameborder="0"
-                    src="https://p3d.in/e/ZWLWJ+shadeless+spin+shading,dl,help,share,ar,spin,link,border,loader-hidden"
-                    class="gallery-iframe"></iframe>
-            </div>
+      <div class="ceramic-item">
+        <img src="/assets/images/cemetery.jpeg" alt="Cemetery">
+      </div>
 
-            <!-- Box -->
-            <div class="gallery-item">
-                <div class="gallery-label">
-                    <h2 class="gallery-title">Box</h2>
-                    <p><strong>Material:</strong> Glass</p>
-                    <p><strong>Dimensions:</strong> 8x8x5 inches</p>
-                    <p><strong>Price:</strong> $300</p>
-                    <p class="gallery-blurb">A grid. Cast glass.</p>
-                </div>
-                <div class="image-gallery">
-                    <a href="/assets/images/IMG_4048.jpg" class="glightbox" data-gallery="box-gallery">
-                        <img src="/assets/images/IMG_4048.jpg" alt="Box Image 1" class="gallery-thumbnail">
-                    </a>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <iframe allowfullscreen loading="lazy" frameborder="0"
-                    src="https://p3d.in/e/0d3XR+shadeless+spin+shading,dl,help,share,ar,spin,link,border,loader-hidden"
-                    class="gallery-iframe"></iframe>
-            </div>
-        </div>
-    </section>
+      <div class="ceramic-item">
+        <iframe allowfullscreen loading="lazy"
+          src="https://p3d.in/e/uLf9v+spin+load+shading,dl,share,spin,link,border-hidden"></iframe>
+      </div>
+
+      <div class="ceramic-item">
+        <img src="/assets/images/dryskin.png" alt="Dry Skin">
+      </div>
+
+      <div class="ceramic-item">
+        <iframe allowfullscreen loading="lazy"
+          src="https://p3d.in/e/zG14R+spin+load+shading,dl,share,spin,link,border-hidden"></iframe>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<script>
+  const heroScans = document.querySelector('.hero-scans');
+  const ceramicsSection = document.querySelector('.ceramics-section');
+
+  window.addEventListener('scroll', () => {
+    const ceramicsTop = ceramicsSection.getBoundingClientRect().top;
+    if (ceramicsTop < window.innerHeight) {
+      heroScans.style.opacity = '0';
+      heroScans.style.pointerEvents = 'none';
+    } else {
+      heroScans.style.opacity = '1';
+      heroScans.style.pointerEvents = 'none';
+    }
+  });
+</script>
+
 </body>
 </html>

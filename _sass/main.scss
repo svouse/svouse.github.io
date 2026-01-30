@@ -1107,6 +1107,31 @@ ul li:hover:before {
   text-align: center;
 }
 
+#portfolio-banner {
+  position: absolute;
+  top: 6%;
+  right: 1%;
+  height: auto;
+  transform: rotate(35deg);
+  z-index: 1;
+}
+
+#portfolio-bg {
+  width: 17.5rem;
+  height: 10rem;
+  display: block;
+}
+
+#portfolio-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-60%, -50%);
+  font-size: 1.5rem;
+  color: $text-color;
+  text-align: center;
+}
+
 @media only screen and (max-width: 768px) {
   #landing {
     display: block !important; /* Ensure it's visible */
