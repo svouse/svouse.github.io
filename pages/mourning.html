@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mourning</title>
+    <link rel="stylesheet" href="/assets/css/main.min.css">
+    <link rel="stylesheet" href="/assets/css/vendors.min.css">
+</head>
+<body class="mourning">
+<a id="back-btn" href="/">Back</a>
+
+<form id="mourning-form" action="https://formspree.io/f/xojynner" method="POST">
+
+    <!-- Hero — full width so background covers the viewport -->
+    <div class="m-section m-section-hero">
+        <div class="m-hero-box">
+            <p class="m-prose">I told a stranger that I had to, due to my intrinsic nature, spend the summer mourning as part of  a </p>
+            <h1 class="m-title">Summer of Mourning</h1>
+            <p class="m-prose">This is true</p>
+            <button type="button" class="m-scroll-btn" onclick="document.getElementById('form-section').scrollIntoView({behavior:'smooth'})">begin</button>
+        </div>
+    </div>
+
+    <!-- Form section -->
+    <div class="m-section-form" id="form-section">
+        <div class="mourning-wrap">
+            <div class="m-section">
+                <p class="m-prose">This summer, while mourning, I will be continuing my sexual career</p>
+
+                <div class="m-question-group">
+                    <p class="m-question">Are we friends?</p>
+                    <div class="m-choices">
+                        <label class="m-choice">
+                            <input type="radio" name="friends" value="Yes" required>
+                            Yes
+                        </label>
+                        <label class="m-choice">
+                            <input type="radio" name="friends" value="Not Really">
+                            Not Really
+                        </label>
+                    </div>
+                </div>
+
+                <div class="m-question-group">
+                    <p class="m-question">Should we make out?</p>
+                    <div class="m-choices">
+                        <label class="m-choice">
+                            <input type="radio" name="make_out" value="Yes" required>
+                            Yes
+                        </label>
+                        <label class="m-choice">
+                            <input type="radio" name="make_out" value="No">
+                            No
+                        </label>
+                    </div>
+                </div>
+
+                <div class="m-question-group">
+                    <p class="m-question">Why</p>
+                    <textarea class="m-textarea" name="why" placeholder="type here..."></textarea>
+                </div>
+
+                <div class="m-question-group">
+                    <p class="m-question">Set a calendar date</p>
+                    <input type="date" class="m-date" name="date">
+                </div>
+
+                <div class="m-question-group">
+                    <p class="m-question">How much window dressing</p>
+                    <div class="m-choices">
+                        <label class="m-choice">
+                            <input type="radio" name="window_dressing" value="None" required>
+                            <span>None— we shake hands. We make out and do sex.</span>
+                        </label>
+                        <label class="m-choice">
+                            <input type="radio" name="window_dressing" value="Some">
+                            <span>Some— we spend at least an hour like "omg are we going to brush hands, a precursor to sex?"</span>
+                        </label>
+                        <label class="m-choice">
+                            <input type="radio" name="window_dressing" value="Lots">
+                            <span>More— we go to a meal or sensual film, perhaps drugs are involved. We laugh at least once. What follows, follows.</span>
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit" class="m-submit-btn" id="submit-btn">Send</button>
+                <p class="m-response" id="response-message"></p>
+            </div>
+        </div>
+    </div>
+
+</form>
+
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.m-section').forEach(s => observer.observe(s));
+
+    const form = document.getElementById('mourning-form');
+    const submitBtn = document.getElementById('submit-btn');
+    const responseMsg = document.getElementById('response-message');
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        submitBtn.disabled = true;
+        submitBtn.textContent = '...';
+
+        const res = await fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: { Accept: 'application/json' },
+        });
+
+        if (res.ok) {
+            form.querySelectorAll('input, textarea, button').forEach(el => el.disabled = true);
+            responseMsg.textContent = 'noted.';
+            responseMsg.style.color = '#20c20e';
+        } else {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Send';
+            responseMsg.textContent = 'something went wrong. try again.';
+            responseMsg.style.color = '#ff4444';
+        }
+    });
+</script>
+</body>
+</html>
