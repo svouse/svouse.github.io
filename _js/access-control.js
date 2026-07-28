@@ -20,6 +20,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 friendSection.style.display = "block";
                 passwordSection.style.display = "none";
                 generalBtn.style.display = "none";
+            } else if (this.value === "club") {
+                friendSection.style.display = "block";
+                passwordSection.style.display = "none";
+                generalBtn.style.display = "none";
             } else {
                 passwordSection.style.display = "none";
                 friendSection.style.display = "none";
@@ -31,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Handle password submission for curators
     submitBtn.addEventListener("click", function () {
         if (passwordInput.value.toLowerCase() === "harlem") {
-            window.location.href = "/pages/studio_museum_current_projects.html";  // Redirect to curator page
+            window.location.href = "/pages/studio_museum_current_projects/";  // Redirect to curator page
         } else {
             errorMessage.textContent = "Access Denied.";
             errorMessage.style.display = "block";
@@ -45,7 +49,9 @@ document.addEventListener("DOMContentLoaded", function () {
         if (selectedRole === "artist") {
             window.location.href = "/artist-insights.html";
         } else if (selectedRole === "curious") {
-            window.location.href = "/pages/what_is_sage_up_to.html";
+            window.location.href = "/pages/what_is_sage_up_to/";
+        } else if (selectedRole === "club") {
+            window.location.href = "/pages/club/";
         }
     });
 
