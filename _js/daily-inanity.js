@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     document.getElementById("back-btn").addEventListener("click", () => {
-        window.location.href = "/index.html"; // Change this to the correct main page
+        window.location.href = "/"; // Change this to the correct main page
     });
 });
 
